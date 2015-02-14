@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -105,6 +106,7 @@ public class SimpleGUI extends JFrame implements ActionListener {
 			for (int col = 0; col < NUM_COLS; col++) {
 				GridButton cell = new GridButton(row, col);
 				cell.setPreferredSize(new Dimension(64, 64));
+                                cell.setBackground(Color.LIGHT_GRAY);
 				cell.addActionListener(this);
 				buttonGrid[row][col] = cell;
 				add(cell);
@@ -128,14 +130,16 @@ public class SimpleGUI extends JFrame implements ActionListener {
 			for (int col = 0; col < NUM_COLS; col++) {
 				Block block = board.getBlockAt(row, col);
 				JButton cell = buttonGrid[row][col];
-				if (block == null)
-					cell.setBackground(Color.LIGHT_GRAY);
-				else if (block instanceof TargetBlock)
-					cell.setBackground(Color.YELLOW);
-				else if (block instanceof HorizontalBlock)
-					cell.setBackground(Color.BLUE);
-				else if (block instanceof VerticalBlock)
-					cell.setBackground(Color.RED);
+				if (block == null){
+					cell.setIcon(null);
+                                } else {
+                                    try {
+                                        ImageIcon icon = block.getImageIcon();
+                                        cell.setIcon(icon);
+                                    } catch (Exception ex) {
+                                        System.out.print(ex);
+                                    }
+                                }
 			}
 		}
 	}
