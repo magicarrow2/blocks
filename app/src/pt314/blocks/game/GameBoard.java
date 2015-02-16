@@ -6,7 +6,7 @@ public class GameBoard {
 	private int height;
 	private Block[][] blocks;
 	
-	public GameBoard(int width, int height) {
+	public GameBoard(int height, int width) {
 		this.width = width;
 		this.height = height;
 		blocks = new Block[height][width];
@@ -121,4 +121,18 @@ public class GameBoard {
 		}
 		System.out.println();
 	}
+        
+        /**
+         * Get gameboard width.
+         */
+        public int getWidth() {
+            return width;
+        }
+        
+        /**
+         * Get gameboard height
+         */
+        public int getHeight() {
+            return height;
+        }
 }

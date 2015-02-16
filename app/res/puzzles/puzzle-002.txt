@@ -1,6 +1,7 @@
-5 5
-VHHHH
-V...V
-H.T.V
-V...V
-VHHHH
+6 6
+VHHHH.
+V...VV
+H.T.VV
+V...VV
+VHHHHV
+..HHHH

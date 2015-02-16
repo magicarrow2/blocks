@@ -12,7 +12,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		GameBoard board = new GameBoard(5, 3);
+		GameBoard board = new GameBoard(3, 5);
 		
 		Block block1 = new HorizontalBlock();
 		
