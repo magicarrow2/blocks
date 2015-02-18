@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -245,6 +247,9 @@ public class SimpleGUI extends JFrame implements ActionListener {
             selectedBlock = null;
             updateUI();
         }
+        
+        if(board.hasWon())
+            gameWonAction();
     }
 
     /**
@@ -374,5 +379,8 @@ public class SimpleGUI extends JFrame implements ActionListener {
             board.placeBlockAt(new TargetBlock(), 2, 2);
         }
     }
-    
+
+    private void gameWonAction() {
+        JOptionPane.showMessageDialog(SimpleGUI.this, "Congratulations! You Won!");
+    }
 }
